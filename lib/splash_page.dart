@@ -12,7 +12,7 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   late AnimationController _mainAnimationController;
   late Animation<Color?> _colorAnimation;
-  late Animation<double> _depthOpacityAnimation;
+ // late Animation<double> _depthOpacityAnimation;
   late Animation<double> _bikeOpacityAnimation;
   late Animation<Offset> _moveUpAnimation;
   late Animation<double> _bikeGrowAnimation;
@@ -29,10 +29,10 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     _mainAnimationController =
         AnimationController(vsync: this, duration: const Duration(seconds: 4));
 //depth opacity
-    _depthOpacityAnimation = Tween<double>(begin: 1, end: 0).animate(
-        CurvedAnimation(
-            parent: _mainAnimationController,
-            curve: const Interval(0.0, 0.2, curve: Curves.linear)));
+    // _depthOpacityAnimation = Tween<double>(begin: 1, end: 0).animate(
+    //     CurvedAnimation(
+    //         parent: _mainAnimationController,
+    //         curve: const Interval(0.0, 0.2, curve: Curves.linear)));
     //scaffold color
     _colorAnimation =
         ColorTween(begin: Colors.white, end: const Color(0xff08B783)).animate(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:radial_menu_ui/image_zoom.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,7 +39,17 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             left: opened ? screenWidth / 2 - 40 : screenWidth / 2 - 120,
             top: opened ? (screenHeight / 2) - 30 : (screenHeight / 2) + 50,
-            child: _buildOption(const Icon(Icons.abc), Colors.orange.shade100),
+            child: _buildOption(
+                const Icon(Icons.tap_and_play), Colors.orange.shade100, () {
+              setState(() {
+                opened = false;
+              });
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ImageZoomPage(),
+                  ));
+            }),
           ),
           AnimatedPositioned(
             duration: const Duration(
@@ -46,7 +57,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             left: opened ? screenWidth / 2 - 40 : screenWidth / 2 + 60,
             top: opened ? (screenHeight / 2) - 30 : (screenHeight / 2) + 50,
-            child: _buildOption(const Icon(Icons.abc), Colors.grey.shade100),
+            child:
+                _buildOption(const Icon(Icons.abc), Colors.grey.shade100, () {
+              setState(() {
+                opened = false;
+              });
+            }),
           ),
           AnimatedPositioned(
             duration: const Duration(
@@ -54,7 +70,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             left: opened ? screenWidth / 2 - 40 : screenWidth / 2 + 60,
             top: opened ? (screenHeight / 2) - 30 : (screenHeight / 2) - 110,
-            child: _buildOption(const Icon(Icons.abc), Colors.yellow.shade100),
+            child:
+                _buildOption(const Icon(Icons.abc), Colors.yellow.shade100, () {
+              setState(() {
+                opened = false;
+              });
+            }),
           ),
           AnimatedPositioned(
             duration: const Duration(
@@ -62,7 +83,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             left: opened ? screenWidth / 2 - 40 : screenWidth / 2 - 120,
             top: opened ? (screenHeight / 2) - 30 : (screenHeight / 2) - 120,
-            child: _buildOption(const Icon(Icons.abc), Colors.brown.shade100),
+            child:
+                _buildOption(const Icon(Icons.abc), Colors.brown.shade100, () {
+              setState(() {
+                opened = false;
+              });
+            }),
           ),
           AnimatedPositioned(
             duration: const Duration(
@@ -70,7 +96,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             left: opened ? screenWidth / 2 - 40 : screenWidth / 2 - 30,
             top: opened ? (screenHeight / 2) - 30 : (screenHeight / 2) - 140,
-            child: _buildOption(const Icon(Icons.abc), Colors.green.shade100),
+            child:
+                _buildOption(const Icon(Icons.abc), Colors.green.shade100, () {
+              setState(() {
+                opened = false;
+              });
+            }),
           ),
           AnimatedPositioned(
             duration: const Duration(
@@ -78,7 +109,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             left: opened ? screenWidth / 2 - 40 : screenWidth / 2 - 30,
             top: opened ? (screenHeight / 2) - 30 : (screenHeight / 2) + 70,
-            child: _buildOption(const Icon(Icons.abc), Colors.blue.shade100),
+            child:
+                _buildOption(const Icon(Icons.abc), Colors.blue.shade100, () {
+              setState(() {
+                opened = false;
+              });
+            }),
           ),
           AnimatedPositioned(
             duration: const Duration(
@@ -86,7 +122,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             left: opened ? screenWidth / 2 - 40 : screenWidth / 2 + 90,
             top: (screenHeight / 2) - 30,
-            child: _buildOption(const Icon(Icons.abc), Colors.purple.shade100),
+            child:
+                _buildOption(const Icon(Icons.abc), Colors.purple.shade100, () {
+              setState(() {
+                opened = false;
+              });
+            }),
           ),
           AnimatedPositioned(
             duration: const Duration(
@@ -94,7 +135,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             left: opened ? screenWidth / 2 - 40 : screenWidth / 2 - 150,
             top: (screenHeight / 2) - 30,
-            child: _buildOption(const Icon(Icons.abc), Colors.pink.shade100),
+            child:
+                _buildOption(const Icon(Icons.abc), Colors.pink.shade100, () {
+              setState(() {
+                opened = false;
+              });
+            }),
           ),
           Align(
             alignment: Alignment.center,
@@ -165,7 +211,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _buildOption(Icon icon, Color iconColor) {
+  Widget _buildOption(Icon icon, Color iconColor, void Function()? onTap) {
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 500),
       transitionBuilder: (child, animation) {
@@ -176,6 +222,7 @@ class _MyHomePageState extends State<MyHomePage> {
       },
       child: InkWell(
         key: UniqueKey(),
+        onTap: onTap,
         child: Padding(
           padding: const EdgeInsets.all(8),
           child: Container(
@@ -190,11 +237,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ),
-        onTap: () {
-          setState(() {
-            opened = false;
-          });
-        },
       ),
     );
   }

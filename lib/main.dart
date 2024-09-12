@@ -1,3 +1,4 @@
+import 'package:card_flip/flipCardWithScale.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -58,6 +59,19 @@ class _CardFlipScreenState extends State<CardFlipScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.white,
+          child: const Center(
+            child: Icon(Icons.navigate_next),
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const CardFlipWithScale(),
+              ),
+            );
+          }),
       backgroundColor: const Color.fromARGB(255, 23, 62, 81),
       body: Center(
         child: GestureDetector(
@@ -107,7 +121,7 @@ class _CardFlipScreenState extends State<CardFlipScreen>
       child: Align(
         alignment: Alignment.center,
         child: Transform(
-          alignment: Alignment.center,
+            alignment: Alignment.center,
             transform: Matrix4.rotationY(angle),
             child: const Text('back side')),
       ),

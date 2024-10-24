@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:reverse_string/articles_app/another_counter_hook.dart';
 import 'package:reverse_string/articles_app/article_change_notifier.dart';
 import 'package:reverse_string/articles_app/counter_hook.dart';
+import 'package:reverse_string/articles_app/fab_hooks.dart';
 import 'package:reverse_string/articles_app/singel_article_page.dart';
 import 'package:reverse_string/articles_app/todo_hook.dart';
 
@@ -97,7 +98,7 @@ class SearchWidgetExample extends HookWidget {
                 );
               },
               icon: const Icon(
-                Icons.one_k,
+                Icons.one_k_outlined,
                 color: Colors.blueGrey,
               ),
             ),
@@ -112,6 +113,20 @@ class SearchWidgetExample extends HookWidget {
               },
               icon: const Icon(
                 Icons.two_k_outlined,
+                color: Colors.blueGrey,
+              ),
+            ),
+             IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>  FabHooksAnimation(),
+                  ),
+                );
+              },
+              icon: const Icon(
+                Icons.three_g_mobiledata,
                 color: Colors.blueGrey,
               ),
             ),

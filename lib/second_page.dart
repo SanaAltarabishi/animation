@@ -1,4 +1,5 @@
 import 'package:custom_transition/sliding_container.dart';
+import 'package:custom_transition/stagger_animation.dart';
 import 'package:flutter/material.dart';
 
 class SecondPage extends StatelessWidget {
@@ -13,6 +14,21 @@ class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const StaggerAnimationPage(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.navigate_next),
+          ),
+        ],
+      ),
       body: const Column(
         children: [
           Expanded(
@@ -23,12 +39,14 @@ class SecondPage extends StatelessWidget {
               intervalEnd: 0.5,
             ),
           ),
-          Expanded(child: SlidingContainer(
-            color: Color.fromARGB(255, 24, 83, 112),
+          Expanded(
+            child: SlidingContainer(
+              color: Color.fromARGB(255, 24, 83, 112),
               initialOffsetX: -1,
               intervalStart: 0.5,
               intervalEnd: 1,
-          ),),
+            ),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(

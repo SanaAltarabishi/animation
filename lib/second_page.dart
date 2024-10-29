@@ -1,3 +1,4 @@
+import 'package:custom_transition/falsh_page.dart';
 import 'package:custom_transition/sliding_container.dart';
 import 'package:custom_transition/stagger_animation.dart';
 import 'package:flutter/material.dart';
@@ -25,8 +26,20 @@ class SecondPage extends StatelessWidget {
                 ),
               );
             },
-            icon: const Icon(Icons.navigate_next),
+            icon: const Icon(Icons.square),
           ),
+ IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>  FalshPage(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.flash_auto_rounded),
+          ),
+
         ],
       ),
       body: const Column(

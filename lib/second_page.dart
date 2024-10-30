@@ -1,3 +1,4 @@
+import 'package:custom_transition/animation_challenge.dart';
 import 'package:custom_transition/falsh_page.dart';
 import 'package:custom_transition/sliding_container.dart';
 import 'package:custom_transition/stagger_animation.dart';
@@ -28,18 +29,28 @@ class SecondPage extends StatelessWidget {
             },
             icon: const Icon(Icons.square),
           ),
- IconButton(
+          IconButton(
             onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) =>  FalshPage(),
+                  builder: (context) => const FalshPage(),
                 ),
               );
             },
             icon: const Icon(Icons.flash_auto_rounded),
           ),
-
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ProgressBar(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.animation),
+          ),
         ],
       ),
       body: const Column(

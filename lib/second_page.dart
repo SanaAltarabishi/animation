@@ -1,22 +1,25 @@
-import 'package:custom_transition/animation_challenge.dart';
+import 'package:custom_transition/hero_animation.dart';
+import 'package:custom_transition/lamp.dart';
+import 'package:custom_transition/lines_animation.dart';
+import 'package:custom_transition/progressBar_animation_challenge.dart';
 import 'package:custom_transition/falsh_page.dart';
+import 'package:custom_transition/radial_wave_progress.dart';
 import 'package:custom_transition/sliding_container.dart';
 import 'package:custom_transition/stagger_animation.dart';
 import 'package:flutter/material.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({super.key});
-
   // final Animation<double> transitionAnimation;
   // const SecondPage({
   //   super.key,
   //   required this.transitionAnimation,
   // });
-
   @override
-  Widget build(BuildContext context) {
+ Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         actions: [
           IconButton(
             onPressed: () {
@@ -49,7 +52,51 @@ class SecondPage extends StatelessWidget {
                 ),
               );
             },
-            icon: const Icon(Icons.animation),
+            icon: const Icon(Icons.bar_chart_rounded),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HeroExample(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.airplanemode_active_outlined),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Radial(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.waves),
+          ),
+                    IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const WindyLines(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.circle),
+          ),
+                           IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ChainReactionLamps(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.light),
           ),
         ],
       ),

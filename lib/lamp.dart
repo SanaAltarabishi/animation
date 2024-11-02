@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 class ChainReactionLamps extends StatefulWidget {
-  const ChainReactionLamps({Key? key}) : super(key: key);
+  const ChainReactionLamps({super.key});
 
   @override
   State<ChainReactionLamps> createState() => _ChainReactionLampsState();
 }
 
 class _ChainReactionLampsState extends State<ChainReactionLamps> {
-  static const int lampCount = 5; // Number of lamps in the chain
-  int _activeLampIndex = 0; // Track which lamp is currently on
-
-  // Initialize the on/off states for each lamp
-  List<bool> _lampStates = List.generate(lampCount, (index) => index == 0);
+  static const int lampCount = 5;
+  int _activeLampIndex = 0;
+  bool _isForward = true;
+  List<bool> lampStates = List.generate(lampCount, (index) => index == 0);
 
   @override
   void initState() {
@@ -25,14 +24,22 @@ class _ChainReactionLampsState extends State<ChainReactionLamps> {
     Timer.periodic(const Duration(seconds: 1), (timer) {
       if (mounted == true) {
         setState(() {
-          // Turn off the current lamp
-          _lampStates[_activeLampIndex] = false;
+          lampStates[_activeLampIndex] = false;
 
-          // Move to the next lamp, looping back to the start if necessary
-          _activeLampIndex = (_activeLampIndex + 1) % lampCount;
-
-          // Turn on the next lamp
-          _lampStates[_activeLampIndex] = true;
+          if (_isForward) {
+            _activeLampIndex++;
+            if (_activeLampIndex >= lampCount) {
+              _activeLampIndex = lampCount - 2;
+              _isForward = false;
+            }
+          } else {
+            _activeLampIndex--;
+            if (_activeLampIndex < 0) {
+              _activeLampIndex = 1;
+              _isForward = true;
+            }
+          }
+          lampStates[_activeLampIndex] = true;
         });
       }
     });
@@ -41,15 +48,22 @@ class _ChainReactionLampsState extends State<ChainReactionLamps> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Chain Reaction Lamps")),
+      appBar: AppBar(
+        title: const Text(
+          "Lamps",
+          style: TextStyle(color: Colors.white),
+        ),
+        centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 43, 42, 42),
+      ),
       backgroundColor: Colors.black,
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(lampCount, (index) {
             return AnimatedLamp(
-              isOn: _lampStates[index],
-              moveUp: index == _activeLampIndex,
+              isOn: lampStates[index],
+              moveright: index == _activeLampIndex,
             );
           }),
         ),
@@ -58,22 +72,74 @@ class _ChainReactionLampsState extends State<ChainReactionLamps> {
   }
 }
 
-class AnimatedLamp extends StatelessWidget {
+class AnimatedLamp extends StatefulWidget {
   final bool isOn;
-  final bool moveUp;
+  final bool moveright;
 
-  const AnimatedLamp({Key? key, required this.isOn, required this.moveUp})
-      : super(key: key);
+  const AnimatedLamp({super.key, required this.isOn, required this.moveright});
+
+  @override
+  State<AnimatedLamp> createState() => _AnimatedLampState();
+}
+
+class _AnimatedLampState extends State<AnimatedLamp>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<Offset> _positionAnimation;
+// final VoidCallback onCompleted;
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 400));
+
+    _positionAnimation = Tween<Offset>(
+            begin: Offset.zero, end: const Offset(0.2, 0))
+        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut))
+      ..addStatusListener(
+        (status) {
+          if (status == AnimationStatus.completed) {
+            _controller.reverse();
+          }
+        },
+      );
+
+    if (widget.moveright) {
+      _controller.forward();
+    }
+  }
+
+  @override
+  void didUpdateWidget(covariant AnimatedLamp oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.moveright && !oldWidget.moveright) {
+      _controller.forward();
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 500),
-      margin: EdgeInsets.only(bottom: moveUp ? 20 : 0),
-      child: Icon(
-        Icons.lightbulb_rounded,
-        color: isOn ? Colors.yellow : Colors.grey,
-        size: 60,
+    return SlideTransition(
+      position: _positionAnimation,
+      child: Column(
+        children: [
+          Container(
+            width: 2,
+            color: widget.isOn ? Colors.yellow : Colors.grey,
+            height: 280,
+          ),
+          Icon(
+            Icons.light,
+            color: widget.isOn ? Colors.yellow : Colors.grey,
+            size: 60,
+          ),
+        ],
       ),
     );
   }

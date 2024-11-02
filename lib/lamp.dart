@@ -54,7 +54,7 @@ class _ChainReactionLampsState extends State<ChainReactionLamps> {
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 43, 42, 42),
+        backgroundColor: const Color.fromARGB(255, 67, 67, 67),
       ),
       backgroundColor: Colors.black,
       body: Center(

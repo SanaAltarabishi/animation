@@ -1,3 +1,4 @@
+import 'package:custom_transition/download_button.dart';
 import 'package:custom_transition/hero_animation.dart';
 import 'package:custom_transition/lamp.dart';
 import 'package:custom_transition/lines_animation.dart';
@@ -16,7 +17,7 @@ class SecondPage extends StatelessWidget {
   //   required this.transitionAnimation,
   // });
   @override
- Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -76,7 +77,7 @@ class SecondPage extends StatelessWidget {
             },
             icon: const Icon(Icons.waves),
           ),
-                    IconButton(
+          IconButton(
             onPressed: () {
               Navigator.push(
                 context,
@@ -87,7 +88,7 @@ class SecondPage extends StatelessWidget {
             },
             icon: const Icon(Icons.circle),
           ),
-                           IconButton(
+          IconButton(
             onPressed: () {
               Navigator.push(
                 context,
@@ -97,6 +98,17 @@ class SecondPage extends StatelessWidget {
               );
             },
             icon: const Icon(Icons.light),
+          ),
+            IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const DownloadButtonAnimation(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.download),
           ),
         ],
       ),

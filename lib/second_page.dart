@@ -1,3 +1,4 @@
+import 'package:custom_transition/card_hover.dart';
 import 'package:custom_transition/download_button.dart';
 import 'package:custom_transition/hero_animation.dart';
 import 'package:custom_transition/lamp.dart';
@@ -109,6 +110,17 @@ class SecondPage extends StatelessWidget {
               );
             },
             icon: const Icon(Icons.download),
+          ),
+             IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const CardHoverAnimation(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.card_travel_sharp),
           ),
         ],
       ),

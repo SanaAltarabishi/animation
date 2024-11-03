@@ -12,29 +12,29 @@ class _CardHoverAnimationState extends State<CardHoverAnimation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Center(
+      body: const Center(
         child: Wrap(
           spacing: 10,
           runSpacing: 10,
           alignment: WrapAlignment.center,
           children: [
             CardHover(
-              name: "sana al tarabishy",
+              name: "sana Al tarabishy",
               image: "assets/coffe.png",
-              buttonColor: Colors.pink,
-              backgroundColor: Colors.pink.shade300,
+              buttonColor: Color.fromARGB(255, 161, 85, 57),
+              backgroundColor: Color.fromARGB(200, 161, 85, 57),
+            ),
+            CardHover(
+              name: "sana ",
+              image: "assets/coffe.png",
+              buttonColor: Color.fromARGB(255, 95, 52, 36),
+              backgroundColor: Color.fromARGB(200, 95, 52, 36),
             ),
             CardHover(
               name: "sana al tarabishy",
               image: "assets/coffe.png",
-              buttonColor: Colors.yellow,
-              backgroundColor: Colors.yellow.shade300,
-            ),
-            CardHover(
-              name: "sana al tarabishy",
-              image: "assets/coffe.png",
-              buttonColor: Colors.blue,
-              backgroundColor: Colors.blue.shade300,
+              buttonColor: Color.fromARGB(255, 188, 146, 131),
+              backgroundColor: Color.fromARGB(200, 188, 146, 131),
             ),
           ],
         ),
@@ -135,13 +135,16 @@ class _CardHoverState extends State<CardHover> {
                     Flexible(
                       child: Visibility(
                         visible: isHovered,
-                        child: const Text(
-                          'ffffffffffffffffffffffffdddddddsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16,
-                            color: Colors.white,
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20.0),
+                          child: Text(
+                            'ffffffffffffffffffffffffdddddddsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),

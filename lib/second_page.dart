@@ -1,5 +1,6 @@
 import 'package:custom_transition/card_hover.dart';
 import 'package:custom_transition/download_button.dart';
+import 'package:custom_transition/error_page.dart';
 import 'package:custom_transition/hero_animation.dart';
 import 'package:custom_transition/lamp.dart';
 import 'package:custom_transition/lines_animation.dart';
@@ -22,109 +23,8 @@ class SecondPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const StaggerAnimationPage(),
-                ),
-              );
-            },
-            icon: const Icon(Icons.square),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const FalshPage(),
-                ),
-              );
-            },
-            icon: const Icon(Icons.flash_auto_rounded),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ProgressBar(),
-                ),
-              );
-            },
-            icon: const Icon(Icons.bar_chart_rounded),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const HeroExample(),
-                ),
-              );
-            },
-            icon: const Icon(Icons.airplanemode_active_outlined),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const Radial(),
-                ),
-              );
-            },
-            icon: const Icon(Icons.waves),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const WindyLines(),
-                ),
-              );
-            },
-            icon: const Icon(Icons.circle),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ChainReactionLamps(),
-                ),
-              );
-            },
-            icon: const Icon(Icons.light),
-          ),
-            IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const DownloadButtonAnimation(),
-                ),
-              );
-            },
-            icon: const Icon(Icons.download),
-          ),
-             IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const CardHoverAnimation(),
-                ),
-              );
-            },
-            icon: const Icon(Icons.card_travel_sharp),
-          ),
-        ],
       ),
-      body: const Column(
+      body: Column(
         children: [
           Expanded(
             child: SlidingContainer(
@@ -132,6 +32,123 @@ class SecondPage extends StatelessWidget {
               initialOffsetX: 1,
               intervalStart: 0,
               intervalEnd: 0.5,
+              child: Wrap(
+                spacing: 50,
+                runSpacing: 20,
+                alignment: WrapAlignment.center,
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Flutter404Animation(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.error),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const StaggerAnimationPage(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.square),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const FalshPage(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.flash_auto_rounded),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ProgressBar(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.bar_chart_rounded),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HeroExample(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.airplanemode_active_outlined),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Radial(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.waves),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const WindyLines(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.circle),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ChainReactionLamps(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.light),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const DownloadButtonAnimation(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.download),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CardHoverAnimation(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.card_travel_sharp),
+                  ),
+                ],
+              ),
             ),
           ),
           Expanded(

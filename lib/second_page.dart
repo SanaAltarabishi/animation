@@ -7,6 +7,7 @@ import 'package:custom_transition/lines_animation.dart';
 import 'package:custom_transition/progressBar_animation_challenge.dart';
 import 'package:custom_transition/falsh_page.dart';
 import 'package:custom_transition/radial_wave_progress.dart';
+import 'package:custom_transition/search_bar.dart';
 import 'package:custom_transition/sliding_container.dart';
 import 'package:custom_transition/stagger_animation.dart';
 import 'package:flutter/material.dart';
@@ -147,11 +148,22 @@ class SecondPage extends StatelessWidget {
                     },
                     icon: const Icon(Icons.card_travel_sharp),
                   ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AnimatedSearchBar(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.search),
+                  ),
                 ],
               ),
             ),
           ),
-          Expanded(
+          const Expanded(
             child: SlidingContainer(
               color: Color.fromARGB(255, 24, 83, 112),
               initialOffsetX: -1,

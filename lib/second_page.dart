@@ -1,3 +1,4 @@
+import 'package:custom_transition/button_animation.dart';
 import 'package:custom_transition/card_hover.dart';
 import 'package:custom_transition/download_button.dart';
 import 'package:custom_transition/error_page.dart';
@@ -158,6 +159,17 @@ class SecondPage extends StatelessWidget {
                       );
                     },
                     icon: const Icon(Icons.search),
+                  ),
+                    IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ButtonLinearAnimation(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.radio_button_checked),
                   ),
                 ],
               ),

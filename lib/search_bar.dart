@@ -29,7 +29,9 @@ class _AnimatedSearchBarState extends State<AnimatedSearchBar>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.blue[50],
+      ),
       body: Container(
         color: Colors.blue[50],
         child: Center(
@@ -68,9 +70,18 @@ class _AnimatedSearchBarState extends State<AnimatedSearchBar>
                         }
                       });
                     },
-                    child: const Icon(
-                      Icons.search,
-                      size: 30,
+                    child: AnimatedBuilder(
+                      animation: _animationController,
+                      builder: (context, child) {
+                        return Transform.rotate(
+                          angle: _animationController.value * 2 * pi,
+                          child: child,
+                        );
+                      },
+                      child: const Icon(
+                        Icons.search,
+                        size: 30,
+                      ),
                     ),
                   ),
                 ),

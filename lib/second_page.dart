@@ -3,6 +3,7 @@ import 'package:custom_transition/card_hover.dart';
 import 'package:custom_transition/download_button.dart';
 import 'package:custom_transition/error_page.dart';
 import 'package:custom_transition/hero_animation.dart';
+import 'package:custom_transition/hover_effect.dart';
 import 'package:custom_transition/lamp.dart';
 import 'package:custom_transition/lines_animation.dart';
 import 'package:custom_transition/progressBar_animation_challenge.dart';
@@ -12,6 +13,7 @@ import 'package:custom_transition/search_bar.dart';
 import 'package:custom_transition/sliding_container.dart';
 import 'package:custom_transition/stagger_animation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({super.key});
@@ -24,7 +26,20 @@ class SecondPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: const Text(
+          'Animations',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            shadows: [
+              BoxShadow(
+                color: Color.fromARGB(255, 24, 83, 112),
+                offset: Offset(-2, 2),
+              ),
+            ],
+          ),
+        ),
+        backgroundColor: Colors.blueGrey,
       ),
       body: Column(
         children: [
@@ -160,7 +175,7 @@ class SecondPage extends StatelessWidget {
                     },
                     icon: const Icon(Icons.search),
                   ),
-                    IconButton(
+                  IconButton(
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -170,6 +185,20 @@ class SecondPage extends StatelessWidget {
                       );
                     },
                     icon: const Icon(Icons.radio_button_checked),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ChangeNotifierProvider(
+                            create: (context) => ColorPaletteState(),
+                            child: const BeautifulFlutterEffect(),
+                          ),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.color_lens),
                   ),
                 ],
               ),

@@ -21,8 +21,7 @@ class ButtonLinearAnimation extends StatelessWidget {
                 ),
               ),
             ),
-
-             MyButtonWidget(
+            MyButtonWidget(
               color: Colors.black,
               child: Text(
                 "Click",

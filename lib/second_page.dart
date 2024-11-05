@@ -1,4 +1,5 @@
 import 'package:custom_transition/button_animation.dart';
+import 'package:custom_transition/button_nav_bar/final_view.dart';
 import 'package:custom_transition/card_hover.dart';
 import 'package:custom_transition/download_button.dart';
 import 'package:custom_transition/error_page.dart';
@@ -199,6 +200,17 @@ class SecondPage extends StatelessWidget {
                       );
                     },
                     icon: const Icon(Icons.color_lens),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const FinalView(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.smart_button_rounded),
                   ),
                 ],
               ),

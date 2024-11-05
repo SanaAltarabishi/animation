@@ -1,6 +1,4 @@
-import 'package:custom_transition/hover_effect.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class Flutter404Animation extends StatefulWidget {
   const Flutter404Animation({super.key});
@@ -42,8 +40,7 @@ class _Flutter404AnimationState extends State<Flutter404Animation>
   Widget build(BuildContext context) {
     double height = MediaQuery.sizeOf(context).height;
     return Scaffold(
-      backgroundColor:context.watch<ColorPaletteState>().selectedColor.color,
-      // const Color.fromARGB(255, 116, 46, 128),
+      backgroundColor: const Color.fromARGB(255, 116, 46, 128),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 116, 46, 128),
       ),

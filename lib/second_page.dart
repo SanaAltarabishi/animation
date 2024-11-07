@@ -13,6 +13,7 @@ import 'package:custom_transition/radial_wave_progress.dart';
 import 'package:custom_transition/search_bar.dart';
 import 'package:custom_transition/sliding_container.dart';
 import 'package:custom_transition/stagger_animation.dart';
+import 'package:custom_transition/text_slide_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -211,6 +212,17 @@ class SecondPage extends StatelessWidget {
                       );
                     },
                     icon: const Icon(Icons.smart_button_rounded),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const TextSlide(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.abc),
                   ),
                 ],
               ),

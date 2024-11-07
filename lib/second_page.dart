@@ -1,3 +1,4 @@
+import 'package:custom_transition/animated_background.dart';
 import 'package:custom_transition/button_animation.dart';
 import 'package:custom_transition/button_nav_bar/final_view.dart';
 import 'package:custom_transition/card_hover.dart';
@@ -223,6 +224,17 @@ class SecondPage extends StatelessWidget {
                       );
                     },
                     icon: const Icon(Icons.abc),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const BackgroundAnimation(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.animation_rounded),
                   ),
                 ],
               ),

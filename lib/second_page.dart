@@ -6,6 +6,7 @@ import 'package:custom_transition/download_button.dart';
 import 'package:custom_transition/error_page.dart';
 import 'package:custom_transition/hero_animation.dart';
 import 'package:custom_transition/hover_effect.dart';
+import 'package:custom_transition/hover_effect_icon_name_animation.dart';
 import 'package:custom_transition/lamp.dart';
 import 'package:custom_transition/lines_animation.dart';
 import 'package:custom_transition/progressBar_animation_challenge.dart';
@@ -235,6 +236,17 @@ class SecondPage extends StatelessWidget {
                       );
                     },
                     icon: const Icon(Icons.animation_rounded),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const BeautifulSocialIcon(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.label),
                   ),
                 ],
               ),

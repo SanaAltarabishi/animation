@@ -202,15 +202,15 @@ class ColorPaletteState extends ChangeNotifier {
   ColorPalette? hoveredColorPalette;
 
   List<ColorPalette> availableColorPalette = [
-    ColorPalette(color: Colors.black12, index: 0),
-    ColorPalette(color: Colors.red.shade100, index: 1),
-    ColorPalette(color: Colors.orange.shade100, index: 2),
-    ColorPalette(color: Colors.purple.shade100, index: 3),
-    ColorPalette(color: Colors.pink.shade100, index: 4),
+    ColorPalette(color: Colors.black26, index: 0),
+    ColorPalette(color: Colors.red.shade200, index: 1),
+    ColorPalette(color: Colors.orange.shade200, index: 2),
+    ColorPalette(color: Colors.purple.shade200, index: 3),
+    ColorPalette(color: Colors.pink.shade200, index: 4),
     ColorPalette(color: const Color.fromARGB(255, 207, 162, 162), index: 5),
-    ColorPalette(color: Colors.yellow.shade100, index: 6),
-    ColorPalette(color: Colors.green.shade100, index: 7),
-    ColorPalette(color: Colors.blueGrey.shade100, index: 8),
+    ColorPalette(color: Colors.yellow.shade200, index: 6),
+    ColorPalette(color: Colors.green.shade200, index: 7),
+    ColorPalette(color: Colors.blueGrey.shade200, index: 8),
   ];
 
   void changeSelectedColor(ColorPalette palette) {

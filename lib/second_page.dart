@@ -1,4 +1,5 @@
 import 'package:custom_transition/animated_background.dart';
+import 'package:custom_transition/animated_icon.dart';
 import 'package:custom_transition/button_animation.dart';
 import 'package:custom_transition/button_nav_bar/final_view.dart';
 import 'package:custom_transition/card_hover.dart';
@@ -247,6 +248,17 @@ class SecondPage extends StatelessWidget {
                       );
                     },
                     icon: const Icon(Icons.label),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AnimatedIconExample(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.transfer_within_a_station),
                   ),
                 ],
               ),

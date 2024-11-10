@@ -20,19 +20,19 @@ class _CardHoverAnimationState extends State<CardHoverAnimation> {
           children: [
             CardHover(
               name: "sana Al tarabishy",
-              image: "assets/coffe.png",
+              image: "assets/images2.png",
               buttonColor: Color.fromARGB(255, 161, 85, 57),
               backgroundColor: Color.fromARGB(200, 161, 85, 57),
             ),
             CardHover(
               name: "sana ",
-              image: "assets/coffe.png",
+              image: "assets/images2.png",
               buttonColor: Color.fromARGB(255, 95, 52, 36),
               backgroundColor: Color.fromARGB(200, 95, 52, 36),
             ),
             CardHover(
               name: "sana al tarabishy",
-              image: "assets/coffe.png",
+              image: "assets/images2.png",
               buttonColor: Color.fromARGB(255, 188, 146, 131),
               backgroundColor: Color.fromARGB(200, 188, 146, 131),
             ),

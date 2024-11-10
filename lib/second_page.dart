@@ -10,6 +10,7 @@ import 'package:custom_transition/hover_effect.dart';
 import 'package:custom_transition/hover_effect_icon_name_animation.dart';
 import 'package:custom_transition/lamp.dart';
 import 'package:custom_transition/lines_animation.dart';
+import 'package:custom_transition/parallax_effect.dart';
 import 'package:custom_transition/progressBar_animation_challenge.dart';
 import 'package:custom_transition/falsh_page.dart';
 import 'package:custom_transition/radial_wave_progress.dart';
@@ -259,6 +260,17 @@ class SecondPage extends StatelessWidget {
                       );
                     },
                     icon: const Icon(Icons.transfer_within_a_station),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ParallaxEffect(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.paragliding),
                   ),
                 ],
               ),

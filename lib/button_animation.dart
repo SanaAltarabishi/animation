@@ -41,6 +41,66 @@ class ButtonLinearAnimation extends StatelessWidget {
                 ),
               ),
             ),
+//shopping button :
+            ShoppingCartButton(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ShoppingCartButton extends StatefulWidget {
+  const ShoppingCartButton({
+    super.key,
+  });
+
+  @override
+  State<ShoppingCartButton> createState() => _ShoppingCartButtonState();
+}
+
+class _ShoppingCartButtonState extends State<ShoppingCartButton> {
+  bool isExpanded = false;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          isExpanded = !isExpanded;
+        });
+      },
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 800),
+        height: 70,
+        width: isExpanded ? 220 : 90,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(isExpanded ? 50 : 10),
+          color: isExpanded ? Colors.green : Colors.purple,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (isExpanded)
+              const SizedBox(
+                width: 35,
+              ),
+            Icon(
+              isExpanded ? Icons.check : Icons.shopping_cart,
+              size: 30,
+              color: Colors.white,
+            ),
+            if (isExpanded)
+              const Expanded(
+                child: Text(
+                  "Add to Cart ",
+                  maxLines: 1,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
           ],
         ),
       ),

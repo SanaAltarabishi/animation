@@ -52,7 +52,7 @@ class _ParallaxEffectState extends State<ParallaxEffect> {
                       scrollController.hasClients
                           ? (-(index * size.height) +
                                   scrollController.position.pixels) /
-2
+                              2
                           : 1.0,
                     ),
                   width: size.width,

@@ -14,7 +14,7 @@ class TextSlide extends StatelessWidget {
       body: Stack(
         children: [
           Image.asset(
-            'assets/coffe.png',
+            'assets/images2.png',
             fit: BoxFit.cover,
             height: height,
           ),
